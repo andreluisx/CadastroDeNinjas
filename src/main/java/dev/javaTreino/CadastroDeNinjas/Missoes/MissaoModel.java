@@ -2,9 +2,17 @@ package dev.javaTreino.CadastroDeNinjas.Missoes;
 
 import dev.javaTreino.CadastroDeNinjas.Ninjas.NinjaModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Table(name = "tb_missao")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class MissaoModel {
 
     @Id
@@ -16,29 +24,6 @@ public class MissaoModel {
 
     // uma missao pode ter varios ninjas
     @OneToMany(mappedBy = "missoes")
-    private NinjaModel ninjas;
+    private List<NinjaModel> ninjas;
 
-    public MissaoModel() {
-    }
-
-    public MissaoModel(String nome, int dificuldade) {
-        this.nome = nome;
-        this.dificuldade = dificuldade;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public int getDificuldade() {
-        return dificuldade;
-    }
-
-    public void setDificuldade(int dificuldade) {
-        this.dificuldade = dificuldade;
-    }
 }

@@ -2,11 +2,15 @@ package dev.javaTreino.CadastroDeNinjas.Ninjas;
 
 import dev.javaTreino.CadastroDeNinjas.Missoes.MissaoModel;
 import jakarta.persistence.*;
-
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "tb_cadastro")
+@NoArgsConstructor // cria um constructor sem argumentos
+@AllArgsConstructor // cria um constructor com todos os argumentos
+@Data // cria getters e setters
 public class NinjaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,36 +25,5 @@ public class NinjaModel {
     @JoinColumn(name = "missoes_id") // ForeignKey ou Chave estrangeira
     private MissaoModel missoes;
 
-    public NinjaModel() {
-    }
 
-    public NinjaModel(String nome, String email, int idade) {
-        this.nome = nome;
-        this.email = email;
-        this.idade = idade;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
 }
