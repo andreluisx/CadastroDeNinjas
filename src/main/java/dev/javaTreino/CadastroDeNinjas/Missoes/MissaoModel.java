@@ -13,6 +13,9 @@ public class MissaoModel {
     private String nome;
     @Column(length = 10, nullable = false)
     private int dificuldade;
+
+    // uma missao pode ter varios ninjas
+    @OneToMany(mappedBy = "missoes")
     private NinjaModel ninjas;
 
     public MissaoModel() {
