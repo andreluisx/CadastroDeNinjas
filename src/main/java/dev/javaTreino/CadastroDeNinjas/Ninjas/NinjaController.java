@@ -3,37 +3,33 @@ package dev.javaTreino.CadastroDeNinjas.Ninjas;
 import org.hibernate.sql.Update;
 import org.springframework.web.bind.annotation.*;
 
+// CRUD BÁSICO DE NINJA
 @RestController
-@RequestMapping
+@RequestMapping("ninja")
 public class NinjaController {
 
-    @GetMapping("/boasvindas")
-    public String BoasVindas() {
-        return "Olá, Boas Vindas";
-    }
-
-    @PostMapping("/criar_ninja")
+    @PostMapping()
     public String criarNinja() {
         return "Ninja Criada com sucesso";
     }
 
-    @GetMapping("/todos_ninjas")
+    @GetMapping()
     public String todosNinjas() {
         return "Todos os ninjas";
     }
 
-    @GetMapping("/ninja/{id}")
-    public String ninja(@PathVariable String id) {
+    @GetMapping("/{id}")
+    public String BuscarNinja(@PathVariable String id) {
         return "Ninja " + id;
     }
 
-    @PatchMapping("/ninja/{id}")
-    public String ninjaUpdate(@PathVariable String id) {
+    @PutMapping("/{id}")
+    public String editarNinja(@PathVariable String id) {
         return "editando Ninja " + id;
     }
 
-    @DeleteMapping("/ninja/{id}")
-    public String ninjaDelete(@PathVariable String id) {
+    @DeleteMapping("/{id}")
+    public String deletarNinja(@PathVariable String id) {
         return "deletando Ninja " + id;
     }
 
