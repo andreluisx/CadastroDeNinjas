@@ -29,7 +29,7 @@ public class MissaoController {
         return missaoService.buscarMissaoPorId(id);
     }
 
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     public MissaoModel editarNinja(@PathVariable Long id, @RequestBody MissaoModel missao) {
         return missaoService.atualizarMissao(id, missao);
     }
