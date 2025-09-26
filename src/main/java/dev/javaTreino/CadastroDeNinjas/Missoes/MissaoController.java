@@ -1,5 +1,6 @@
 package dev.javaTreino.CadastroDeNinjas.Missoes;
 
+import dev.javaTreino.CadastroDeNinjas.Ninjas.NinjaModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,8 +15,8 @@ public class MissaoController {
     private MissaoService missaoService;
 
     @PostMapping()
-    public String criarMissao() {
-        return "Missao Criada com sucesso";
+    public MissaoModel criarMissao(@RequestBody MissaoModel missao) {
+        return missaoService.criarMissao(missao);
     }
 
     @GetMapping()
@@ -29,13 +30,14 @@ public class MissaoController {
     }
 
     @PutMapping("/{id}")
-    public String editarMissao(@PathVariable String id) {
-        return "editando Missao " + id;
+    public MissaoModel editarNinja(@PathVariable Long id, @RequestBody MissaoModel missao) {
+        return missaoService.atualizarMissao(id, missao);
     }
 
     @DeleteMapping("/{id}")
-    public String deletarMissao(@PathVariable String id) {
-        return "deletando Missao " + id;
+    public String deletarNinja(@PathVariable Long id) {
+        missaoService.deletarMissao(id);
+        return "deletado Ninja " + id;
     }
 
 }
