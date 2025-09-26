@@ -26,8 +26,8 @@ public class NinjaController {
     }
 
     @GetMapping("/{id}")
-    public String BuscarNinja(@PathVariable String id) {
-        return "Ninja " + id;
+    public NinjaModel BuscarNinja(@PathVariable Long id) {
+        return ninjaService.buscarNinjaPorId(id);
     }
 
     @PutMapping("/{id}")
