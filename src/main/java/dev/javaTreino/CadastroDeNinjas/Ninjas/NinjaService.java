@@ -1,5 +1,6 @@
 package dev.javaTreino.CadastroDeNinjas.Ninjas;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,6 +26,9 @@ public class NinjaService {
 
     public NinjaDTO buscarNinjaPorId(Long id){
         NinjaModel ninja = ninjaRepository.findById(id).orElse(null);
+        if (ninja == null){
+            return null;
+        }
         return ninjaMapper.map(ninja);
     }
 
